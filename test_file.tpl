@@ -37,3 +37,14 @@ MIG2A 0.000 0.000 0.000
 0.000 0.000 0.000 0.000
 0.000 0.000 0.000 0.000
 0.000 0.000 0.000 0.000
+//historical event: time, source, sink, migrants, new deme size, growth rate, migr mat index
+3 historical event
+TDIV32 3 2 1 RELANC32 0 1
+TDIV02 1 2 1 RELANC02 0 2
+TDIV1_ANC02 0 2 1 RELANC12 0 3
+//Number of independent loci [chromosomes]
+1  0
+//Per chromosome: Number of linkage blocks
+1
+//per block: Datatype, numm loci, rec rate and mut rate + optional parameters
+FREQ 1  0 2.49e-8 OUTEXP
