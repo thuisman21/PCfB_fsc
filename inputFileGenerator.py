@@ -1,5 +1,4 @@
 import argparse
-from _ast import arguments
 
 
 def argument_list():
@@ -43,6 +42,11 @@ def create_tpl(arguments):
                     for k in range(arguments.n_pops):
                         f.write(f"0.000 ")
                     f.write(f"\n")
+        else:
+            with open(arguments.input, "r") as input_f:
+                for line in input_f:
+                    f.write(f"{line}")
+
 
 
 #def create_est(argument):
