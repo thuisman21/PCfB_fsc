@@ -1,8 +1,14 @@
 # Created by: Thimo Huisman
 # Date: Feb 1 2024
 # Email: t.huisman.6@student.rug.nl
+
 # Example usage:
 # inputFileGenerator.py -n 4 -s 12 -m 2.49e-8 -f <output_prefix> -i <matrix.txt> -e <events.txt> -p <parameters.txt>
+
+# Used to generate output:
+# inputFileGenerator.py -n 4 -s 12 -m 2.49e-8 -f test_file -i matrix_template.txt -e events_template.txt -p parameters.txt
+# Output generated:
+# test_file.tpl & test_file.est
 
 import argparse
 
