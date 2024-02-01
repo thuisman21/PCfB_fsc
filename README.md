@@ -4,6 +4,8 @@ Date: Feb 1 2024
 
 Email: t.huisman.6@student.rug.nl
 
+Github: https://github.com/thuisman21/PCfB_fsc
+
 Example usage:
 inputFileGenerator.py -n 4 -s 12 -m 2.49e-8 -f <output_prefix> -i <matrix.txt> -e <events.txt> -p <parameters.txt>
 
