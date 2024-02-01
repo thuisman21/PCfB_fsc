@@ -18,8 +18,8 @@ def argument_list():
 
 
 def create_tpl(arguments):
-    output_file = arguments.file + ".tpl"
-    with open(output_file, "w") as f:
+    output_tpl = arguments.file + ".tpl"
+    with open(output_tpl, "w") as f:
         f.write(f"//Number of population samples (demes)\n")
         f.write(f"{arguments.n_pops} populations to simulate\n")
 
@@ -58,22 +58,36 @@ def create_tpl(arguments):
             f.write(f"\n")
 
         f.write(f"//Number of independent loci [chromosomes]\n")
-        f.write(f"{arguments.loci}  0\n")
+        f.write(f"{arguments.loci} 0\n")
 
         f.write(f"//Per chromosome: Number of linkage blocks\n")
         f.write(f"{arguments.blocks}\n")
 
         f.write(f"//per block: Datatype, numm loci, rec rate and mut rate + optional parameters\n")
-        f.write(f"FREQ {arguments.loci}  0 {arguments.mutation_rate} OUTEXP")
+        f.write(f"FREQ {arguments.loci} 0 {arguments.mutation_rate} OUTEXP")
 
-# def create_est(argument):
+
+def create_est(arguments):
+    output_est = arguments.file + ".est"
+    with open(output_est, "w") as f:
+        f.write(f"// Priors and rules file\n")
+        f.write(f"// *********************\n")
+
+        f.write(f"\n[PARAMETERS]\n")
+        f.write(f"//#isInt? #name   #dist.#min  #max\n")
+        f.write(f"//all Ns are in number of haploid individuals\n")
 
 
 def main():
     arg_list = argument_list()
 
+    print(f"Creating first input file {arg_list.file}.tpl")
     create_tpl(arg_list)
-    # create_est(arg_list)
+    print(f"{arg_list.file}.tpl created, with {arg_list.n_pops} populations and sample sizes of {arg_list.sample_size}.")
+
+    print(f"Creating second input file {arg_list.file}.est")
+    create_est(arg_list)
+    print(f"{arg_list.file}.est created.")
 
 
 if __name__ == "__main__":
