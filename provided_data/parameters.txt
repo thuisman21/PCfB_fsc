@@ -1,9 +1,4 @@
-// Priors and rules file
-// *********************
-
-[PARAMETERS]
-//#isInt? #name   #dist.#min  #max
-//all Ns are in number of haploid individuals
+Parameters
 1  N_POP0       unif     10    1e5   output
 1  N_POP1       unif     10    1e5   output
 1  N_POP2       unif     10    1e5   output
@@ -20,10 +15,8 @@
 0  NMA0        logunif  1e-5   20    hide
 0  NM1A       logunif  1e-5   20    hide
 0  NMA1      logunif  1e-5   20    hide
-
-[RULES]
-
-[COMPLEX PARAMETERS]
+Rules
+Complex Parameters
 0  MIG10 =  NM10/N_POP1  output
 0  MIG01 =  NM01/N_POP0  output
 0  MIGA2 =  NMA0/N_ANC12 output

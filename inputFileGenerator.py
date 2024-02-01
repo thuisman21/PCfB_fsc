@@ -12,6 +12,7 @@ def argument_list():
     parser.add_argument("-e", "--events", required=True, type=str, help="historical events the model is based on")
     parser.add_argument("-l", "--loci", default=1, type=int, help="number of loci")
     parser.add_argument("-b", "--blocks", default=1, type=int, help="number of linkage blocks ")
+    parser.add_argument("-p", "--parameters", required=True, type=str, help="Parameters file")
     args = parser.parse_args()
 
     return args
@@ -77,6 +78,15 @@ def create_est(arguments):
         f.write(f"//#isInt? #name   #dist.#min  #max\n")
         f.write(f"//all Ns are in number of haploid individuals\n")
 
+        with open(arguments.parameters, "r") as param_f:
+            for line in param_f:
+                if line.strip() == "Parameters":
+                    continue
+                elif line.strip() == "Rules" or line.strip() == "Complex Parameters":
+                    f.write(f"[{line.upper().strip()}]\n")
+                else:
+                    f.write(f"{line}")
+            f.write(f"\n")
 
 def main():
     arg_list = argument_list()
